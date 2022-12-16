@@ -3,7 +3,7 @@
 
 
 def main():
-    puzzle_input = open("./input.txt", "r").readlines()[0]
+    puzzle_input = open("./2015/1/2015_01.txt", "r").readlines()[0]
 
     position, current_floor = 0, 0
     while current_floor >= 0:
