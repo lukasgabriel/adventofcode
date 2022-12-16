@@ -3,10 +3,10 @@
 
 
 def main():
-    puzzle_input = input("Please enter the puzzle input: ")
+    puzzle_input = open("./input.txt", "r").readlines()[0]
     puzzle_solution = puzzle_input.count("(") - puzzle_input.count(")")
     return (
-        f"Given the input {puzzle_input}, Santa will end up on floor {puzzle_solution}"
+        f"Santa will end up on floor {puzzle_solution}"
     )
 
 

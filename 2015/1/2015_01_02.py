@@ -3,7 +3,7 @@
 
 
 def main():
-    puzzle_input = input("Please enter the puzzle input: ")
+    puzzle_input = open("./input.txt", "r").readlines()[0]
 
     position, current_floor = 0, 0
     while current_floor >= 0:
@@ -12,7 +12,7 @@ def main():
         )
         position += 1
 
-    return f"Given the input {puzzle_input}, Santa will enter the basement at position {position}"
+    return f"Santa will enter the basement at position {position}"
 
 
 if __name__ == "__main__":
