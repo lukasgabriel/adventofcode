@@ -5,9 +5,7 @@
 def main():
     puzzle_input = open("./2015/1/2015_01.txt", "r").readlines()[0]
     puzzle_solution = puzzle_input.count("(") - puzzle_input.count(")")
-    return (
-        f"Santa will end up on floor {puzzle_solution}"
-    )
+    return f"Santa will end up on floor {puzzle_solution}"
 
 
 if __name__ == "__main__":
