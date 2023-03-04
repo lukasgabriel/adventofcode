@@ -1,5 +1,5 @@
-# Advent of Code 2015, Day 7: Some Assembly Required. Part 1
-# http://adventofcode.com/day/7
+# Advent of Code 2015, Day 7: Some Assembly Required. Part 2
+# http://adventofcode.com/day/7#part2
 
 from re import findall, match
 from uuid import uuid4
@@ -30,7 +30,8 @@ class Wire:
     def connect_in(self, source: "Wire" or "Gate" or int):
         if self.connection_in:
             raise Exception
-        self.signal = source if type(source) == int else self.signal
+        if type(source) == int:
+            self.signal = source
         self.connection_in = source
 
     def connect_out(self, target: "Wire" or "Gate"):
@@ -43,6 +44,10 @@ class Wire:
                 f"[Wire {self.id} with signal {self.signal}] visited too many times. Skipping..."
             )
             return
+        
+        if self.id == "b":
+            signal = argv[2]
+
         self.signal = signal
         for connection in self.connections_out:
             print(f"Sending {self.signal} to {connection.id}")
@@ -229,13 +234,14 @@ def main():
 
             circuit[left].connect_out(circuit[right])
 
-    print("\n---\tCircuit Simulation:\t---\n")
+
+    print("\n---\tCircuit Simulation 1:\t---\n")
     for item in circuit.items():
         print(f"{item[0]}:\t{item[1]}")
         if type(item[1]) == Wire and type(item[1].connection_in) == int:
             item[1].send(item[1].connection_in)
 
-    print("\n---\tFinal Values:\t---\n")
+    print("\n---\tFinal Values 1:\t---\n")
     for item in circuit.items():
         if type(item[1]) == Wire:
             print(f"{item[1].id}: {item[1].signal}")
