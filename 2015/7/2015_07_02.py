@@ -14,7 +14,7 @@ class Wire:
         self.connections_out = []
         self.visited = 0
 
-    def __repr__(self):
+    def __str__(self):
         c_in = (
             self.connection_in.id
             if type(self.connection_in) in [Wire, Gate]
@@ -44,7 +44,7 @@ class Wire:
                 f"[Wire {self.id} with signal {self.signal}] visited too many times. Skipping..."
             )
             return
-        
+
         if self.id == "b":
             signal = argv[2]
 
@@ -70,7 +70,7 @@ class Gate:
         if operation in ["LSHIFT", "RSHIFT"]:
             assert shift
 
-    def __repr__(self):
+    def __str__(self):
         c_in = []
         sig = []
         for conn in self.connections_in:
@@ -233,7 +233,6 @@ def main():
                 circuit[wire_right.id] = wire_right
 
             circuit[left].connect_out(circuit[right])
-
 
     print("\n---\tCircuit Simulation 1:\t---\n")
     for item in circuit.items():

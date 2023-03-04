@@ -14,7 +14,7 @@ class Wire:
         self.connections_out = []
         self.visited = 0
 
-    def __repr__(self):
+    def __str__(self):
         c_in = (
             self.connection_in.id
             if type(self.connection_in) in [Wire, Gate]
@@ -65,7 +65,7 @@ class Gate:
         if operation in ["LSHIFT", "RSHIFT"]:
             assert shift
 
-    def __repr__(self):
+    def __str__(self):
         c_in = []
         sig = []
         for conn in self.connections_in:
