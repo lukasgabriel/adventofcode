@@ -1,5 +1,5 @@
-# Advent of Code 2015, Day 8: Matchsticks. Part 1
-# http://adventofcode.com/day/8
+# Advent of Code 2015, Day 8: Matchsticks. Part 2
+# http://adventofcode.com/day/8#part2
 
 string_chars = 0  # Initialize variable in global namespace
 
